@@ -70,8 +70,24 @@ require = (function (modules, cache, entry) {
   // Override the current require with this new one
   return newRequire;
 })({2:[function(require,module,exports) {
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
 
-},{}],3:[function(require,module,exports) {
+
+searchForm.addEventListener('submit', e => {
+  // Get search term
+  const searchTerm = searchInput.value;
+
+  // Get sort
+  const sortBy = document.querySelector('input[name="sortby"]:checked').value;
+
+  // Get limit
+  const searchLimit = document.getElementById('limit').value;
+
+  e.preventDefault();
+});
+
+},{}],12:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -192,5 +208,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[3,2])
+},{}]},{},[12,2])
 //# sourceMappingURL=/dist/RedditSearchApp.map
