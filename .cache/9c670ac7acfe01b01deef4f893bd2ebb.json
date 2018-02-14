@@ -1,0 +1,1 @@
+{"dependencies":[{"name":"./index.js","dynamic":true}],"generated":{"html":"<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"utf-8\">\n    <title>Reddit Search</title>\n  </head>\n  <body>\n\n    <script src=\"/dist/RedditSearchApp.js\"></script>\n  </body>\n</html>\n"},"hash":"7cb3540b80572830df7e495d206439d9","cacheData":{}}
