@@ -40,4 +40,7 @@ function showMessage(message, className) {
 
   // Insert message
   searchContainer.insertBefore(div, search);
+
+  // Timeout alert
+  setTimeout(() => document.querySelector('.alert').remove(), 3000);
 }
