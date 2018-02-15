@@ -69,7 +69,28 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({2:[function(require,module,exports) {
+})({13:[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  search: function (searchTerm, searchLimit, sortBy) {
+    fetch(`http://www.reddit.com/search.json?q=${searchTerm}`).then(res => res.json()).then(data => {
+      console.log(data);
+    });
+  }
+};
+},{}],2:[function(require,module,exports) {
+'use strict';
+
+var _redditapi = require('./redditapi');
+
+var _redditapi2 = _interopRequireDefault(_redditapi);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('search-input');
 
@@ -90,7 +111,13 @@ searchForm.addEventListener('submit', e => {
     showMessage('Please add a search term', 'alert-danger');
   }
 
-  e.preventDefault();
+  // Clear input
+  searchInput.value = '';
+
+  // Search Reddit
+  _redditapi2.default.search();
+
+  e.preventDefault(searchTerm, searchLimit, sortBy);
 });
 
 // Show Message
@@ -116,8 +143,7 @@ function showMessage(message, className) {
   // Timeout alert
   setTimeout(() => document.querySelector('.alert').remove(), 3000);
 }
-
-},{}],12:[function(require,module,exports) {
+},{"./redditapi":13}],12:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
